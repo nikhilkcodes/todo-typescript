@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: todo-docker-frontend:latest
+    build:
+      context: ./w3dev-todo
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    image: todo-docker-backend:latest
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    # Add any additional configurations for your backend service here
